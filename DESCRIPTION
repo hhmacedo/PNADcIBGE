@@ -15,8 +15,19 @@ Description: Provides tools for downloading, reading and analyzing the Continuou
   of Geography and Statistics - IBGE. The data must be downloaded from the official
   website <https://www.ibge.gov.br/>. Further analysis must be made using package 'survey'.
 Depends: R (>= 3.2.0)
-Imports: dplyr, httr, magrittr, projmgr, RCurl, readr, readxl, survey,
-        tibble, timeDate, utils
+Imports: 
+    dplyr,
+    httr,
+    httr2,
+    magrittr,
+    projmgr,
+    RCurl,
+    readr,
+    readxl,
+    survey,
+    tibble,
+    timeDate,
+    utils
 Suggests: convey, SIPDIBGE, srvyr
 License: GPL-3
 Encoding: UTF-8
