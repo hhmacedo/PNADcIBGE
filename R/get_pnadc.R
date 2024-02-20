@@ -131,7 +131,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of microdata was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdata, dataname), destfile=paste0(savedir, "/", dataname), mode="wb")
+      paste0(ftpdata, dataname) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/", dataname))
       if (suppressWarnings(class(try(utils::unzip(zipfile=paste0(savedir, "/", dataname), exdir=savedir), silent=TRUE)) == "try-error")) {
         message("The directory defined to save the downloaded data is denied permission to overwrite the existing files, please clear or change this directory.\n")
         return(NULL)
@@ -147,7 +150,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of dictionary and input was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdir, "Documentacao/", inputzip), destfile=paste0(savedir, "/Dicionario_e_input.zip"), mode="wb")
+      paste0(ftpdir, "Documentacao/", inputzip) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/Dicionario_e_input.zip"))
       if (reload == FALSE) {
         message("The definition of FALSE for the reload argument will be ignored, since the file of dictionary and input was not downloaded yet.\n")
       }
@@ -185,7 +191,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
           message("The reload argument was defined as FALSE and the file of deflator was already downloaded, so the download process will not execute again.\n")
         }
         else {
-          utils::download.file(url=paste0(ftpdir, "Documentacao/", defzip), destfile=paste0(savedir, "/Deflatores.zip"), mode="wb")
+          paste0(ftpdir, "Documentacao/", defzip) |>
+            httr2::request() |>
+            httr2::req_progress() |>
+            httr2::req_perform(path = paste0(savedir, "/Deflatores.zip"))
           if (reload == FALSE) {
             message("The definition of FALSE for the reload argument will be ignored, since the file of deflator was not downloaded yet.\n")
           }
@@ -236,7 +245,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of microdata was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdata, dataname), destfile=paste0(savedir, "/", dataname), mode="wb")
+      paste0(ftpdata, dataname) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/", dataname))
       if (suppressWarnings(class(try(utils::unzip(zipfile=paste0(savedir, "/", dataname), exdir=savedir), silent=TRUE)) == "try-error")) {
         message("The directory defined to save the downloaded data is denied permission to overwrite the existing files, please clear or change this directory.\n")
         return(NULL)
@@ -257,7 +269,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of input was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdir, "Visita_", interview, "/Documentacao/", inputpre), destfile=paste0(savedir, "/", inputpre), mode="wb")
+      paste0(ftpdir, "Visita_", interview, "/Documentacao/", inputpre) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/", inputpre))
       if (reload == FALSE) {
         message("The definition of FALSE for the reload argument will be ignored, since the file of input was not downloaded yet.\n")
       }
@@ -291,7 +306,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
           message("The reload argument was defined as FALSE and the file of dictionary was already downloaded, so the download process will not execute again.\n")
         }
         else {
-          utils::download.file(url=paste0(ftpdir, "Visita_", interview, "/Documentacao/", dicpre), destfile=paste0(savedir, "/", dicpre), mode="wb")
+          paste0(ftpdir, "Visita_", interview, "/Documentacao/", dicpre) |>
+            httr2::request() |>
+            httr2::req_progress() |>
+            httr2::req_perform(path = paste0(savedir, "/", dicpre))
           if (reload == FALSE) {
             message("The definition of FALSE for the reload argument will be ignored, since the file of dictionary was not downloaded yet.\n")
           }
@@ -337,7 +355,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
           message("The reload argument was defined as FALSE and the file of deflator was already downloaded, so the download process will not execute again.\n")
         }
         else {
-          utils::download.file(url=paste0(ftpdir, "Documentacao_Geral/", defpre), destfile=paste0(savedir, "/", defpre), mode="wb")
+          paste0(ftpdir, "Documentacao_Geral/", defpre) |>
+            httr2::request() |>
+            httr2::req_progress() |>
+            httr2::req_perform(path = paste0(savedir, "/", defpre))
           if (reload == FALSE) {
             message("The definition of FALSE for the reload argument will be ignored, since the file of deflator was not downloaded yet.\n")
           }
@@ -387,7 +408,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of microdata was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdata, dataname), destfile=paste0(savedir, "/", dataname), mode="wb")
+      paste0(ftpdata, dataname) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/", dataname))
       if (suppressWarnings(class(try(utils::unzip(zipfile=paste0(savedir, "/", dataname), exdir=savedir), silent=TRUE)) == "try-error")) {
         message("The directory defined to save the downloaded data is denied permission to overwrite the existing files, please clear or change this directory.\n")
         return(NULL)
@@ -403,7 +427,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
       message("The reload argument was defined as FALSE and the file of input was already downloaded, so the download process will not execute again.\n")
     }
     else {
-      utils::download.file(url=paste0(ftpdir, "Trimestre_", topic, "/Documentacao/", inputpre), destfile=paste0(savedir, "/", inputpre), mode="wb")
+      paste0(ftpdir, "Trimestre_", topic, "/Documentacao/", inputpre) |>
+        httr2::request() |>
+        httr2::req_progress() |>
+        httr2::req_perform(path = paste0(savedir, "/", inputpre))
       if (reload == FALSE) {
         message("The definition of FALSE for the reload argument will be ignored, since the file of input was not downloaded yet.\n")
       }
@@ -442,7 +469,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
           message("The reload argument was defined as FALSE and the file of dictionary was already downloaded, so the download process will not execute again.\n")
         }
         else {
-          utils::download.file(url=paste0(ftpdir, "Trimestre_", topic, "/Documentacao/", dicpre), destfile=paste0(savedir, "/", dicpre), mode="wb")
+          paste0(ftpdir, "Trimestre_", topic, "/Documentacao/", dicpre) |>
+            httr2::request() |>
+            httr2::req_progress() |>
+            httr2::req_perform(path = paste0(savedir, "/", dicpre))
           if (reload == FALSE) {
             message("The definition of FALSE for the reload argument will be ignored, since the file of dictionary was not downloaded yet.\n")
           }
@@ -496,7 +526,10 @@ get_pnadc <- function(year, quarter = NULL, interview = NULL, topic = NULL, sele
           message("The reload argument was defined as FALSE and the file of deflator was already downloaded, so the download process will not execute again.\n")
         }
         else {
-          utils::download.file(url=paste0(ftpdir, "Trimestre_", defperiod, "/Documentacao/", defpre), destfile=paste0(savedir, "/", defpre), mode="wb")
+          paste0(ftpdir, "Trimestre_", defperiod, "/Documentacao/", defpre)
+            httr2::request() |>
+            httr2::req_progress() |>
+            httr2::req_perform(path = paste0(savedir, "/", defpre))
           if (reload == FALSE) {
             message("The definition of FALSE for the reload argument will be ignored, since the file of deflator was not downloaded yet.\n")
           }
